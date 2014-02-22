@@ -10,7 +10,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_A_Petrol_NonAC_Car() {
 		
 		Trip trip = new Trip(
-				new Car("Swift", FuelType.PETROL, ACType.NON_AC),
+				new Car("Swift", FuelType.PETROL, Vehicle.NONAC),
 				new Location("PUNE", 0F),
 				new Location("MUMBAI",200F),
 				5);
@@ -22,7 +22,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_A_Petrol_AC_Car() {
 		
 		Trip trip = new Trip(
-				new Car("Swift", FuelType.PETROL, ACType.AC),
+				new Car("Swift", FuelType.PETROL, Vehicle.AC),
 				new Location("PUNE", 0F),
 				new Location("MUMBAI",200F),
 				5);
@@ -34,7 +34,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_A_Diesel_AC_Car() {
 		
 		Trip trip = new Trip(
-				new Car("Swift", FuelType.DIESEL, ACType.AC),
+				new Car("Swift", FuelType.DIESEL, Vehicle.AC),
 				new Location("PUNE", 0F),
 				new Location("MUMBAI",200F),
 				5);
@@ -58,7 +58,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_AN_AC_BUS() {
 		
 		Trip trip = new Trip(
-				new BUS("Tata skyline", ACType.AC, 40),
+				new BUS("Tata skyline", Vehicle.AC, 40),
 				new Location("MUMBAI", 200F),
 				new Location("BANGALORE",1000F),
 				40);
@@ -70,7 +70,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_A_Petrol_NonAC_Car_WhenMaxCapacityExcedes() {
 		
 		Trip trip = new Trip(
-				new Car("Swift", FuelType.PETROL, ACType.NON_AC),
+				new Car("Swift", FuelType.PETROL, Vehicle.NONAC),
 				new Location("PUNE", 0F),
 				new Location("MUMBAI",200F),
 				7);
@@ -82,7 +82,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_AN_AC_BUS_WhenMaxCapacityExcedes() {
 		
 		Trip trip = new Trip(
-				new BUS("Tata skyline", ACType.AC, 40),
+				new BUS("Tata skyline", Vehicle.AC, 40),
 				new Location("MUMBAI", 200F),
 				new Location("BANGALORE",1000F),
 				45);
@@ -95,7 +95,7 @@ public class VehicleRentalTest {
 	public void itGivesCorrectTotalExpenseFor_A_Petrol_NonAC_Car_With_Tolls() {
 		
 		Trip trip = new Trip(
-				new Car("Swift", FuelType.PETROL, ACType.NON_AC),
+				new Car("Swift", FuelType.PETROL, Vehicle.NONAC),
 				new Location("PUNE", 0F),
 				new Location("MUMBAI",200F, 100F),
 				5);
@@ -113,4 +113,27 @@ public class VehicleRentalTest {
 				7);
 		assertEquals(new Float(12250), trip.getTotalExpense());
 	
-	}}
+	}
+	
+	@Test
+	public void itCalculatesTotalFuelExpenseForA_Petrol_NonAC_Car(){
+		Trip trip = new Trip(
+				new Car("Swift", FuelType.PETROL, Vehicle.NONAC, 20F),
+				new Location("PUNE", 0F),
+				new Location("MUMBAI",200F),
+				5);
+		assertEquals(new Float(1800), trip.getTotalExpense());
+		assertEquals(new Float(600), trip.getFuelExpense());
+	}
+	
+	@Test
+	public void itCalculatesTotalFuelExpenseForA_Diesel_AC_Car(){
+		Trip trip = new Trip(
+				new Car("Swift", FuelType.DIESEL, Vehicle.AC, 22F),
+				new Location("PUNE", 0F),
+				new Location("MUMBAI",200F),
+				5);
+		assertEquals(new Float(2000), trip.getTotalExpense());
+		assertEquals(new Float(800), trip.getFuelExpense());
+	}
+}

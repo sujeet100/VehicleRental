@@ -4,8 +4,8 @@ public class BUS extends Vehicle {
 
 	private static final Float discountInPercentage = 2F;
 	
-	public BUS(String carName, ACType acType, int maxCapacity) {
-		super(carName, FuelType.DIESEL, acType, maxCapacity);
+	public BUS(String carName, boolean isAC, int maxCapacity) {
+		super(carName, FuelType.DIESEL, isAC, maxCapacity);
 	}
 
 	@Override

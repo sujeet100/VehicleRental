@@ -25,4 +25,10 @@ public class Location {
 		return totalToll;
 	}
 
+	public String getLocationName() {
+		return name;
+	}
+	
+	
+
 }

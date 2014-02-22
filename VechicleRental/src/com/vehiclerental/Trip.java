@@ -2,6 +2,8 @@ package com.vehiclerental;
 
 public class Trip {
 
+	private static final float DIESEL_RATE = 80F;
+	private static final float PETROL_RATE = 60F;
 	private static final float MAX_CAPACITY_EXCEDES_EXTRA_CHARGES = 1.5F;
 	private Location destination;
 	private Vehicle vehicle;
@@ -32,6 +34,11 @@ public class Trip {
 	
 	public Float totalTripDistance(){
 		return source.getDistanceFromPune() + destination.getDistanceFromPune();
+	}
+
+	public Float getFuelExpense() {
+		Float fuelRate = vehicle.getFuelType().equals(FuelType.PETROL) ? PETROL_RATE:DIESEL_RATE; 
+		return totalTripDistance() / vehicle.getMileage() * fuelRate;
 	}
 
 }

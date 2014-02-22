@@ -1,5 +1,10 @@
 Car rental:
 
+You are tired of writting the code for many years and have decided to open a car rental business.
+For that you need a program which calculates the total expense for the trip.
+So you decide to write a one last code for it.
+
+
 Story 1:
 A vehicle can be rented for a trip.
 Vehicle can be a car, SUV or bus.
@@ -59,4 +64,22 @@ Output:	Total Expense: 1900
  
 Trip:	"Mahindra XUV 500", Mumbai-Bangalore Toll:100, 150, 7 Passengers, 
 Output: Total Expense: 12250
+
+===================================================
+Story 4:
+Calculate total fuel expenses for the trip. Fule expense are not included in total expense.
+Rates for Petrol: 80Rs/L
+Rates for Diesel: 60Rs/L
+
+AC vehicles give less milage by 2km/L
+
+Trip:	Swift Petrol NON_AC, Pune-Mumbai
+Output:	Total Expense: 1600
+	Fule Expense: 600
+
+Trip:	Swift Diesel AC, Pune-Mumbai
+Output:	Total Expense: 1600
+	Fule Expense: 800
+
+
 
